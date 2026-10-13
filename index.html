@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App — Tugas Rutin 5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+
+    <header class="top-bar">
+      <div>
+        <p class="clock" id="clock">--:--</p>
+        <p class="date" id="dateLabel"></p>
+      </div>
+      <p class="greeting" id="greeting">Halo!</p>
+    </header>
+
+    <form id="searchForm" class="search-pill">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="cityInput" placeholder="Cari kota... (contoh: Medan)" autocomplete="off" required>
+      <button type="submit">Cari</button>
+    </form>
+
+    <div class="unit-switch">
+      <button type="button" class="unit-btn active" data-unit="metric" id="btnC">°C</button>
+      <button type="button" class="unit-btn" data-unit="imperial" id="btnF">°F</button>
+    </div>
+
+    <div id="loading" class="state-box hidden">
+      <div class="spinner"></div>
+      <p>Memuat data cuaca...</p>
+    </div>
+
+    <div id="error" class="state-box error-box hidden"></div>
+
+    <section id="weatherResult" class="hero-card hidden">
+      <div class="hero-top">
+        <div>
+          <h2 id="cityName"></h2>
+          <p id="dateTime" class="hero-date"></p>
+        </div>
+        <img id="weatherIcon" alt="ikon cuaca">
+      </div>
+      <p id="temperature" class="hero-temp"></p>
+      <p id="description" class="hero-desc"></p>
+    </section>
+
+    <div id="statRow" class="stat-row hidden">
+      <div class="stat-chip chip-pink">
+        <span class="stat-icon">💧</span>
+        <span class="stat-label">Kelembaban</span>
+        <span class="stat-value" id="humidity"></span>
+      </div>
+      <div class="stat-chip chip-amber">
+        <span class="stat-icon">💨</span>
+        <span class="stat-label">Angin</span>
+        <span class="stat-value" id="wind"></span>
+      </div>
+      <div class="stat-chip chip-mint">
+        <span class="stat-icon">🌡️</span>
+        <span class="stat-label">Terasa</span>
+        <span class="stat-value" id="feelsLike"></span>
+      </div>
+    </div>
+
+    <section class="history-card">
+      <div class="history-head">
+        <h3>Riwayat Pencarian</h3>
+        <button type="button" id="clearHistoryBtn" class="clear-btn">Hapus</button>
+      </div>
+      <ul id="historyList" class="history-list"></ul>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
